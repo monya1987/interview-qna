@@ -1,0 +1,11 @@
+[
+  {
+    "id": 1,
+    "name": "Собеседование FE React",
+    "position": "React Frontend developer",
+    "link": "https://www.youtube.com/watch?v=2vDrqUeD7Og",
+    "mocked": true,
+    "coding": true,
+    "grade": "Middle"
+  }
+]

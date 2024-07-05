@@ -11,9 +11,12 @@
   "dependencies": {
     "bootstrap": "^5.3.3",
     "next": "14.2.4",
+    "prism-react-renderer": "^2.3.1",
     "react": "^18",
     "react-bootstrap": "^2.10.4",
-    "react-dom": "^18"
+    "react-code-block": "^1.0.0",
+    "react-dom": "^18",
+    "react-use": "^17.5.0"
   },
   "devDependencies": {
     "@types/node": "^20",

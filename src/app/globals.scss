@@ -1,3 +1,5 @@
+@import '~bootstrap/scss/bootstrap.scss';
+//@import "~@fortawesome/fontawesome-svg-core/styles.css";
 :root {
   --max-width: 1100px;
   --border-radius: 12px;
@@ -86,13 +88,6 @@ body {
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
 }
 
 a {

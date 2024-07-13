@@ -3,6 +3,7 @@
 import type { ApiVideos } from '@/global';
 import Table from 'react-bootstrap/Table';
 import Badge from 'react-bootstrap/Badge';
+import Link from '@/components/molecules/Link';
 
 type PageProps = {
   data: ApiVideos[];
@@ -13,7 +14,22 @@ export default function VideosPage({ data }: PageProps) {
   return (
     <div>
       <h1>Videos Page</h1>
-      <p>Filter by: React \ Angular \ Vue</p>
+      <p>
+        Filter by:
+        <Link href="/videos">All</Link>
+        {' '}
+        \
+        {' '}
+        <Link href="/videos/react">React</Link>
+        {' '}
+        \
+        {' '}
+        <Link href="/videos/angular">Angulart</Link>
+        {' '}
+        \
+        {' '}
+        <Link href="/videos/vue">Vue</Link>
+      </p>
       <Table striped bordered hover>
         <thead>
           <tr>

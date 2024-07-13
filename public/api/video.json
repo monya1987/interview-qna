@@ -2,10 +2,51 @@
   {
     "id": 1,
     "name": "Собеседование FE React",
-    "position": "React Frontend developer",
+    "library": "React",
     "link": "https://www.youtube.com/watch?v=2vDrqUeD7Og",
     "mocked": true,
     "coding": true,
-    "grade": "Middle"
+    "grade": "Middle",
+    "date": "01.10.2024"
+  },
+  {
+    "id": 2,
+    "name": "Собеседование FE React 2",
+    "library": "Vue",
+    "link": "https://www.youtube.com/watch?v=2vDrqUeD7Og",
+    "mocked": true,
+    "coding": true,
+    "grade": "Middle",
+    "date": "01.10.2024"
+  },
+  {
+    "id": 3,
+    "name": "Собеседование FE React 3",
+    "library": "Vue",
+    "link": "https://www.youtube.com/watch?v=2vDrqUeD7Og",
+    "mocked": true,
+    "coding": true,
+    "grade": "Middle",
+    "date": "01.10.2024"
+  },
+  {
+    "id": 4,
+    "name": "Собеседование FE React 4",
+    "library": "React",
+    "link": "https://www.youtube.com/watch?v=2vDrqUeD7Og",
+    "mocked": true,
+    "coding": true,
+    "grade": "Middle",
+    "date": "01.10.2024"
+  },
+  {
+    "id": 5,
+    "name": "Собеседование FE React 5",
+    "library": "Angular",
+    "link": "https://www.youtube.com/watch?v=2vDrqUeD7Og",
+    "mocked": true,
+    "coding": true,
+    "grade": "Middle",
+    "date": "01.10.2024"
   }
 ]

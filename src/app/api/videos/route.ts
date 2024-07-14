@@ -1,5 +1,6 @@
-import { NextRequest } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 import client from '@/mongodb';
+import Videos from './model';
 // eslint-disable-next-line import/prefer-default-export
 export async function GET(request: NextRequest) {
   const SHOW_PER_PAGE = 3;
@@ -37,4 +38,19 @@ export async function GET(request: NextRequest) {
   // TODO fucking JSON go to MONGO
 
   return Response.json({ data: pageData, totalPages });
+}
+
+export async function POST(req: NextRequest) {
+  try {
+    const data = await req.json();
+    const newItem = new Videos(data);
+    const db = client;
+    await db
+      .collection('videos')
+      .insertOne(newItem);
+    return Response.json(200);
+  } catch (e) {
+    console.log(e);
+    return Response.json(500);
+  }
 }

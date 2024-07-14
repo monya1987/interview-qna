@@ -1,9 +1,9 @@
-import { MongoClient } from 'mongodb';
+// import { MongoClient } from 'mongodb';
 
-declare global {
-    const globalThis: any;
-    const _mongoClientPromise: Promise<MongoClient>;
-}
+// declare global {
+//     const globalThis: any;
+//     const _mongoClientPromise: Promise<MongoClient>;
+// }
 
 export type ApiVideos = {
     'id': number,

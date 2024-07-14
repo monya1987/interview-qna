@@ -16,7 +16,7 @@ async function VideosPage({ params, searchParams = {} }: PageProps) {
   const { slug } = params;
   const hasSlug = slug && AVAILABLE_SLUGS.includes(slug[0]);
   const currentPage = Number(searchParams?.page) || 1;
-  const res = await fetch(`${process.env.URL}/api/videos?page=${currentPage}${hasSlug ? `&slug=${slug}` : ''}`);
+  const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/videos?page=${currentPage}${hasSlug ? `&slug=${slug}` : ''}`);
   const { data, totalPages } = await res.json();
 
   return (

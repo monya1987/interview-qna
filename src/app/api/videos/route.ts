@@ -1,33 +1,34 @@
 import { NextRequest } from 'next/server';
 import client from '@/mongodb';
-import type { ApiVideos } from '@/global';
+import { ApiVideos, Libraries } from '@/global';
 import Videos from './model';
 
-type Slug = Pick<Partial<ApiVideos>, 'library'>;
+type SearchQuery = {
+  library?: Pick<ApiVideos, 'library'>
+};
 
 export async function GET(req: NextRequest) {
   const SHOW_PER_PAGE = 3;
   const { searchParams } = new URL(req.url);
   const currentPage = searchParams.get('page') || 0;
   const slug = searchParams.get('slug') || '';
-  const q:Slug = {};
-  if (slug) {
+  const searchQuery: SearchQuery = {};
+  if (Object.keys(Libraries).includes(slug)) {
     // @ts-ignore
-    q.library = slug;
+    searchQuery.library = 'react';
   }
-  console.log('slug', slug);
   try {
     const db = client;
     const records = await db
       .collection('videos')
-      .find(q)
+      .find(searchQuery)
       .skip(Number(currentPage) * SHOW_PER_PAGE)
       .limit(SHOW_PER_PAGE)
       .toArray();
 
     const totalRecords = await db
       .collection('videos')
-      .countDocuments(q);
+      .countDocuments(searchQuery);
 
     return Response.json({ data: records, totalPages: Math.ceil(totalRecords / SHOW_PER_PAGE) });
   } catch (e) {

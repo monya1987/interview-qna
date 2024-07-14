@@ -1,6 +1,6 @@
 ## Possible domain 
 
-interview-qna.com \ frontend.interview-qna.com
+interview-qna.com \ frontend.interview-qna.com / https://easyoffer.ru/
 
 ```bash
 npm run dev

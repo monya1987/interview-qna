@@ -1,6 +1,6 @@
 'use client';
 
-import type { ApiVideos } from '@/global';
+import { ApiVideos, Libraries } from '@/global';
 import Table from 'react-bootstrap/Table';
 import Badge from 'react-bootstrap/Badge';
 import Link from '@/components/molecules/Link';
@@ -8,27 +8,18 @@ import Link from '@/components/molecules/Link';
 type PageProps = {
   data: ApiVideos[];
 }
+
 export default function VideosPage({ data }: PageProps) {
   // const ddd = Object.groupBy(data, ({ library }) => library);
-  // console.log(data);
+  // console.log('Object.values(Libraries)', Object.values(Libraries));
   return (
     <div>
       <h1>Videos Page</h1>
       <p>
         Filter by:
         <Link href="/videos">All</Link>
-        {' '}
-        \
-        {' '}
-        <Link href="/videos/react">React</Link>
-        {' '}
-        \
-        {' '}
-        <Link href="/videos/angular">Angulart</Link>
-        {' '}
-        \
-        {' '}
-        <Link href="/videos/vue">Vue</Link>
+        {/* eslint-disable-next-line react/no-array-index-key */}
+        {Object.values(Libraries).map((name, index) => (<Link key={index} href={`/videos/${name}`}>{name}</Link>))}
       </p>
       <Table striped bordered hover>
         <thead>
@@ -43,20 +34,20 @@ export default function VideosPage({ data }: PageProps) {
         </thead>
         <tbody>
           {data.map(({
-            id, name, grade, mocked, coding, library, date,
+            _id, name, grade, isMocked, hasCoding, library, date,
           }) => (
-            <tr key={id}>
+            <tr key={_id}>
               <td>{name}</td>
               <td>{grade}</td>
               <td>{library}</td>
               <td>
-                <Badge bg={mocked ? 'success' : 'light'}>
-                  {mocked ? 'Yes' : 'No'}
+                <Badge bg={isMocked ? 'success' : 'info'}>
+                  {isMocked ? 'Yes' : 'No'}
                 </Badge>
               </td>
               <td>
-                <Badge bg={coding ? 'success' : 'light'}>
-                  {coding ? 'Yes' : 'No'}
+                <Badge bg={hasCoding ? 'success' : 'info'}>
+                  {hasCoding ? 'Yes' : 'No'}
                 </Badge>
               </td>
               <td>{date}</td>

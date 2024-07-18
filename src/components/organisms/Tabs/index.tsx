@@ -1,7 +1,6 @@
 'use client';
 
 import Nav from 'react-bootstrap/Nav';
-import './style.scss';
 import Link from '@/components/molecules/Link';
 
 const LINKS = [

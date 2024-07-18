@@ -18,7 +18,7 @@ export default function Pages({ currentPage, totalPages }: PaginationProps) {
     <Pagination>
       {totalPagesArr.map((page) => (
         <Pagination.Item as="span" key={page} active={currentPage === page}>
-          <NextLink href={`?page=${page}`}>{page + 1}</NextLink>
+          <NextLink href={`${page ? `?page=${page}` : '?'}`}>{page + 1}</NextLink>
         </Pagination.Item>
       ))}
     </Pagination>

@@ -68,5 +68,15 @@
     "id": 13,
     "title": "Make it work",
     "code": "function limit(delayFn: typeof delay, ms: number) {\n  return (newDelay: number) => {\n    if (newDelay > ms) {\n      return Promise.reject(new Error('Time Limit Exceeded'));\n    }\n    return delayFn(ms);\n  };\n}\n\nlimit(delay, 100)(10).then(console.log).catch(console.error); // Done\nlimit(delay, 100)(50).then(console.log).catch(console.error); // Done\nlimit(delay, 100)(150).then(console.log).catch(console.error); // Error: Time Limit Exceeded\nlimit(delay, 100)(300).then(console.log).catch(console.error); // Error: Time Limit Exceeded"
+  },
+  {
+    "id" : 14,
+    "title": "range",
+    "code": "function range(n1, n2) {\n  const res = [];\n  if (n1 < n2) {\n    for (let i = n1; i <= n2; i++) {\n      res.push(i);\n    }\n  } else {\n    for (let i = n1; i > n2; i--) {\n      res.push(i);\n    }\n  }\n  return res;\n}\n\nconsole.log(range(5,9)) // expected [5,6,7,8,9]\nconsole.log(range(4,-2)) // expected [4,3,2,1,0,-1,-2]"
+  },
+  {
+    "id": 15,
+    "title": "remove if more then 2",
+    "code": "// remove if more then 2 duplicates\nfunction removeDuplicates(arr) {\n  const res = [];\n  const hashMap = {};\n  arr.forEach((item) => {\n    hashMap[item] = hashMap[item] ? (hashMap[item] += 1) : 1;\n    if (hashMap[item] <= 2) {\n      res.push(item);\n    }\n  });\n\n  console.log(hashMap);\n  return res;\n}\n\nconsole.log(removeDuplicates([0, 0, 0, 1, 1, 1, 2, 2, 3])); // expected [0,0,1,1,2,2,3]"
   }
 ]

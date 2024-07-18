@@ -5,15 +5,33 @@ export const Libraries = {
   vanilla: 'vanilla',
 } as const;
 
+const QuestionTypesFE = {
+  general: 'general',
+  browser: 'browser',
+  ts: 'ts',
+  hr: 'hr',
+  css: 'css',
+  html: 'html',
+  webpack: 'webpack',
+} as const;
+
+export const QuestionTypes = { ...Libraries, ...QuestionTypesFE } as const;
+
 export type NextPage = {
     params: {
         slug: string
     }
-    // eslint-disable-next-line react/require-default-props
-    searchParams?: {
+    searchParams: {
         query?: string;
         page?: string;
     };
+}
+
+export type ApiQuestions = {
+    '_id': string,
+    'question': string,
+    'answer': string,
+    'labels': typeof QuestionTypes[keyof typeof QuestionTypes][],
 }
 
 export type ApiVideos = {

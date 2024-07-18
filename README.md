@@ -2,6 +2,11 @@
 
 interview-qna.com \ frontend.interview-qna.com / https://easyoffer.ru/
 
+To think store only youtube id and get data from from api
+https://developers.google.com/youtube/v3/docs/videos/list?apix_params=%7B%22part%22%3A%5B%22snippet%2CcontentDetails%2Cstatistics%22%5D%2C%22id%22%3A%5B%22lrdaRbJctaA%22%5D%7D
+
+
+
 ```bash
 npm run dev
 # or

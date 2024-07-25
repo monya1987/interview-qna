@@ -32,7 +32,6 @@ export async function GET(req: NextRequest) {
 
     return Response.json({ data: records, totalPages: Math.ceil(totalRecords / SHOW_PER_PAGE) });
   } catch (e) {
-    console.error(e);
     return Response.json(500);
   }
 }
@@ -47,7 +46,6 @@ export async function POST(req: NextRequest) {
       .insertOne(newItem);
     return Response.json(200);
   } catch (e) {
-    console.log(e);
     return Response.json(500);
   }
 }

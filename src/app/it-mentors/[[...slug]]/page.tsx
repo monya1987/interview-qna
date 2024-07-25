@@ -1,6 +1,7 @@
-import Page from '@/components/pages/it-mentors'
+import Page from '@/components/pages/it-mentors';
+
 export default function ItMentorsPage() {
-    return (
-        <Page />
-    );
+  return (
+    <Page />
+  );
 }

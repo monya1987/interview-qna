@@ -1,5 +1,5 @@
-export default function () {
-    return (
-        <div>mentors</div>
-    );
+export default function Mentors() {
+  return (
+    <div>mentors</div>
+  );
 }

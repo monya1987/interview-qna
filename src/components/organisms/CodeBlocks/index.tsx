@@ -3,7 +3,6 @@
 import './style.scss';
 import type { ApiCoding } from '@/global';
 import { useCopyToClipboard } from 'react-use';
-import Button from 'react-bootstrap/Button';
 import { CodeBlock } from 'react-code-block';
 
 export default function CodeBlocks({ data }: {data: ApiCoding[]}) {
@@ -29,9 +28,9 @@ export default function CodeBlocks({ data }: {data: ApiCoding[]}) {
                   </div>
                 </CodeBlock.Code>
 
-                <Button className="CodeBlockWrapperButton" onClick={() => copyCode(code)}>
+                <button className="CodeBlockWrapperButton" onClick={() => copyCode(code)}>
                   {state.value ? 'Copied!' : 'Copy code'}
-                </Button>
+                </button>
               </div>
             </CodeBlock>
           </div>

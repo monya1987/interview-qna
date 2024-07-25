@@ -1,6 +1,7 @@
-import Page from '@/components/pages/online-coding'
+import Page from '@/components/pages/online-coding';
+
 export default function CodingPage() {
-    return (
-        <Page />
-    );
+  return (
+    <Page />
+  );
 }

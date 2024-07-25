@@ -1,6 +1,5 @@
 'use client';
 
-import Nav from 'react-bootstrap/Nav';
 import Link from '@/components/molecules/Link';
 
 const LINKS = [
@@ -16,13 +15,13 @@ const LINKS = [
 export default function Navigation() {
   return (
     <nav>
-      <Nav defaultActiveKey="/home" as="nav">
+      <nav>
         {LINKS.map(({ link, name }) => (
-          <Nav.Item as="div" key={name}>
+          <div key={name}>
             <Link className="nav-link" href={link}>{name}</Link>
-          </Nav.Item>
+          </div>
         ))}
-      </Nav>
+      </nav>
     </nav>
   );
 }

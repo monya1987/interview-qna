@@ -1,8 +1,6 @@
-import styles from './style.module.scss';
-
 export default function Footer() {
   return (
-    <footer className={styles.Footer}>
+    <footer className="mt-auto">
       footer
     </footer>
   );

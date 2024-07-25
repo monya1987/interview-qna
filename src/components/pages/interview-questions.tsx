@@ -1,9 +1,7 @@
-
-export default function () {
-
-    return (
-        <div>
-            questions
-        </div>
-    );
+export default function Questions() {
+  return (
+    <div>
+      questions
+    </div>
+  );
 }

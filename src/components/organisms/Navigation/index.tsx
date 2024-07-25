@@ -1,8 +1,17 @@
 'use client';
 
-import Nav from 'react-bootstrap/Nav';
-import './style.scss';
-import Link from '@/components/molecules/Link';
+import React from 'react';
+import {
+  Navbar,
+  NavbarBrand,
+  NavbarMenuToggle,
+  NavbarMenuItem,
+  NavbarMenu,
+  NavbarContent,
+  NavbarItem,
+  Link,
+} from '@nextui-org/react';
+import { usePathname } from 'next/navigation';
 
 const LINKS = [
   { link: '/', name: 'Главная' },
@@ -14,16 +23,57 @@ const LINKS = [
   { link: '/it-mentors', name: 'Менторы' },
 ];
 
-export default function Navigation() {
+function Logo() {
   return (
-    <nav>
-      <Nav defaultActiveKey="/home" as="nav">
+    <NavbarBrand>
+      <Link color="foreground" href="/">
+        Logo
+      </Link>
+    </NavbarBrand>
+  );
+}
+
+export default function Navigation() {
+  const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+  const pathname = usePathname();
+
+  return (
+    <Navbar
+      isBordered
+      isMenuOpen={isMenuOpen}
+      onMenuOpenChange={setIsMenuOpen}
+    >
+      <NavbarContent className="sm:hidden pr-3" justify="center">
+        <Logo />
+      </NavbarContent>
+      <NavbarContent className="sm:hidden" justify="end">
+        <NavbarMenuToggle aria-label={isMenuOpen ? 'Close menu' : 'Open menu'} />
+      </NavbarContent>
+
+      <NavbarContent className="hidden sm:flex gap-4" justify="center">
+        <Logo />
         {LINKS.map(({ link, name }) => (
-          <Nav.Item as="div" key={name}>
-            <Link className="nav-link" href={link}>{name}</Link>
-          </Nav.Item>
+          <NavbarItem key={name} isActive={pathname === link}>
+            <Link color="foreground" href={link}>
+              {name}
+            </Link>
+          </NavbarItem>
         ))}
-      </Nav>
-    </nav>
+      </NavbarContent>
+
+      <NavbarMenu>
+        {LINKS.map(({ link, name }) => (
+          <NavbarMenuItem key={link} isActive={pathname === link}>
+            <Link
+              className="w-full"
+              size="lg"
+              href={link}
+            >
+              {name}
+            </Link>
+          </NavbarMenuItem>
+        ))}
+      </NavbarMenu>
+    </Navbar>
   );
 }

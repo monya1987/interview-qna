@@ -1,8 +1,6 @@
 'use client';
 
 import { ApiVideos, Libraries } from '@/global';
-import Table from 'react-bootstrap/Table';
-import Badge from 'react-bootstrap/Badge';
 import Link from '@/components/molecules/Link';
 
 type PageProps = {
@@ -21,7 +19,7 @@ export default function VideosPage({ data }: PageProps) {
         {/* eslint-disable-next-line react/no-array-index-key */}
         {Object.values(Libraries).map((name, index) => (<Link key={index} href={`/videos/${name}`}>{name}</Link>))}
       </p>
-      <Table striped bordered hover>
+      <table>
         <thead>
           <tr>
             <th>Name</th>
@@ -41,21 +39,17 @@ export default function VideosPage({ data }: PageProps) {
               <td>{grade}</td>
               <td>{library}</td>
               <td>
-                <Badge bg={isMocked ? 'success' : 'info'}>
-                  {isMocked ? 'Yes' : 'No'}
-                </Badge>
+                {isMocked ? 'Yes' : 'No'}
               </td>
               <td>
-                <Badge bg={hasCoding ? 'success' : 'info'}>
-                  {hasCoding ? 'Yes' : 'No'}
-                </Badge>
+                {hasCoding ? 'Yes' : 'No'}
               </td>
               <td>{date}</td>
             </tr>
           ))}
 
         </tbody>
-      </Table>
+      </table>
 
     </div>
   );

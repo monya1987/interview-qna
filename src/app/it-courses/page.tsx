@@ -1,6 +1,7 @@
-import Page from '@/components/pages/it-courses'
+import Page from '@/components/pages/it-courses';
+
 export default function ItCoursesPage() {
-    return (
-        <Page />
-    );
+  return (
+    <Page />
+  );
 }
